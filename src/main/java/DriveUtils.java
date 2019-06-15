@@ -202,10 +202,10 @@ public class DriveUtils {
                 maxLengthOfLink = maxLengthOfLink > links[i].length() ? maxLengthOfLink : links[i].length();
             }
 
-            ColumnFormatter<String> fnameFormatter = ColumnFormatter.text(Alignment.LEFT, maxLengthOfFName + 3);
-            ColumnFormatter<String> timeFormatter = ColumnFormatter.text(Alignment.LEFT, maxLengthOfTime + 3);
-            ColumnFormatter<String> typeFormatter = ColumnFormatter.text(Alignment.LEFT, maxLengthOfType + 3);
-            ColumnFormatter<String> linkFormatter = ColumnFormatter.text(Alignment.LEFT, maxLengthOfLink + 3);
+            ColumnFormatter<String> fnameFormatter = ColumnFormatter.text(Alignment.CENTER, maxLengthOfFName + 4);
+            ColumnFormatter<String> timeFormatter = ColumnFormatter.text(Alignment.CENTER, maxLengthOfTime + 4);
+            ColumnFormatter<String> typeFormatter = ColumnFormatter.text(Alignment.CENTER, maxLengthOfType + 4);
+            ColumnFormatter<String> linkFormatter = ColumnFormatter.text(Alignment.CENTER, maxLengthOfLink + 4);
 
             Table.Builder builder = new Table.Builder("file name", fnames, fnameFormatter);
             builder.addColumn("create time", times, timeFormatter);
