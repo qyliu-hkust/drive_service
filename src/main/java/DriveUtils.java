@@ -177,7 +177,6 @@ public class DriveUtils {
         else {
             logger.info(String.format("Found %d files under folder: %s.", files.size(), folderId));
 
-            String[] headers = {"file name", "create time", "type", "link"};
             String[] fnames = new String[files.size()];
             String[] times = new String[files.size()];
             String[] types = new String[files.size()];
