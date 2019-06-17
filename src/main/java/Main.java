@@ -27,8 +27,7 @@ public class Main {
 
             // parse help
             if (cml.hasOption("help")) {
-                HelpFormatter helpFormatter = new HelpFormatter();
-                helpFormatter.printHelp("java -jar drive_service.jar ", options);
+                printHelp(options);
                 System.exit(0);
             }
 
@@ -66,8 +65,16 @@ public class Main {
                 System.exit(0);
             }
         }
-        catch (ParseException | IOException | GeneralSecurityException e) {
+        catch (ParseException e) {
+            printHelp(options);
+        }
+        catch (IOException | GeneralSecurityException e) {
             logger.error(e.getMessage());
         }
+    }
+
+    private static void printHelp(Options options) {
+        HelpFormatter helpFormatter = new HelpFormatter();
+        helpFormatter.printHelp("java -jar drive_service.jar ", options);
     }
 }
