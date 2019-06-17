@@ -14,7 +14,7 @@ which can be used as building blocks in some batch processing pipelines.
 Modify the configurations in `config.properties` file.
 Run `mvn clean package` under the project directory.
 
-### Install to local
+### Install to local repository
 
 Run `mvn install`.
 
@@ -30,7 +30,7 @@ After that, your token will be stored on your local machine to avoid later login
 
 ### Basic usage
 ```
-usage: java -jar drive_service.jar
+usage: java -jar drive_service-1.0-jar-with-dependencies.jar
  -create_folder   create a folder in Google drive
  -help            print help message
  -i <arg>         path to the upload file
@@ -41,3 +41,9 @@ usage: java -jar drive_service.jar
  -upload          upload a file to given folder
  -upload_data     upload a data file to the default folder
 ```
+
+### Examples
+
+1. List files: `java -jar drive_service-1.0-jar-with-dependencies.jar -list folder_id`
+2. Upload an image: `java -jar drive_service-1.0-jar-with-dependencies.jar -upload -i path_to_image/mypic.png -name mypic -parent parent_folder_id -type image/png`
+3. Upload data file to default folder: `java -jar drive_service-1.0-jar-with-dependencies.jar -upload_data -i path_to_data/my_data.csv`
