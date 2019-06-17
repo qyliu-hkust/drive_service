@@ -67,9 +67,11 @@ public class Main {
         }
         catch (ParseException e) {
             printHelp(options);
+            System.exit(-1);
         }
         catch (IOException | GeneralSecurityException e) {
             logger.error(e.getMessage());
+            System.exit(-1);
         }
     }
 
