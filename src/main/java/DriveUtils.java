@@ -83,7 +83,9 @@ public class DriveUtils {
      */
     private static Credential getCredentials(final NetHttpTransport HTTP_TRANSPORT) throws IOException {
         // Load client secrets.
-        InputStream in = new FileInputStream(CREDENTIALS_FILE_PATH);
+        java.io.File credential = new java.io.File(CREDENTIALS_FILE_PATH);
+
+        InputStream in = new FileInputStream(credential.getCanonicalFile());
         GoogleClientSecrets clientSecrets = GoogleClientSecrets.load(JSON_FACTORY, new InputStreamReader(in));
 
         // Build flow and trigger user authorization request.
