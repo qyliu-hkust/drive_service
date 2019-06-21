@@ -44,12 +44,21 @@ public class Main {
 
             // parse upload
             if (cml.hasOption("upload")) {
-                if (cml.hasOption("i") && cml.hasOption("name") && cml.hasOption("type") && cml.hasOption("parent")) {
-                    DriveUtils.uploadFile(cml.getOptionValue("i"), cml.getOptionValue("name"),
-                            cml.getOptionValue("type"), cml.getOptionValue("parent"));
+                if (cml.hasOption("i") && cml.hasOption("name") && cml.hasOption("parent")) {
+                    if (cml.hasOption("type")) {
+                        // use user-provide type if available
+                        DriveUtils.uploadFile(cml.getOptionValue("i"), cml.getOptionValue("name"),
+                                cml.getOptionValue("type"), cml.getOptionValue("parent"));
+                    }
+                    else {
+                        // otherwise use default `file` type
+                        logger.warn("Use default meme type: application/vnd.google-apps.file.");
+                        DriveUtils.uploadFile(cml.getOptionValue("i"), cml.getOptionValue("name"),
+                                "application/vnd.google-apps.file", cml.getOptionValue("parent"));
+                    }
                 }
                 else {
-                    throw new ParseException("Parameters are not enough. Required 'i', 'name', 'type' and 'parent'.");
+                    throw new ParseException("Parameters are not enough. Required 'i', 'name', and 'parent'.");
                 }
                 System.exit(0);
             }
