@@ -54,7 +54,7 @@ public class Main {
                         // otherwise use default `file` type
                         logger.warn("Use default meme type: application/vnd.google-apps.file.");
                         DriveUtils.uploadFile(cml.getOptionValue("i"), cml.getOptionValue("name"),
-                                "application/vnd.google-apps.file", cml.getOptionValue("parent"));
+                                "application/octet-stream", cml.getOptionValue("parent"));
                     }
                 }
                 else {
